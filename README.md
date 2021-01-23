@@ -50,3 +50,58 @@ const output = multiplyBy2(num);
 const newOutput = multiplyBy2(10);
 ```
 
+## Using Node APIs
+
+```js
+const server = http.createServer();
+server.listen(80);
+```
+
+`http.createServer()` This code is interact with C++ through Node. This command for node internal feature.
+
+Help of [libUV](https://github.com/libuv/libuv) (Some C ++ code is already written in libUV) open **socket**, an open channel to the internet.Setup a network feature of node but this time to not able to receive messages because port is not port is setup in next line.
+
+Node js make Network(net) -> http
+
+libUV like Node code to any computer internal structure like MAC, Linux or Window.
+
+Channel max length is `65,535`. Different number to represent an entry point to channel to my computer called as PORT.
+
+The entry point for receiving messages from the server is default port 80.
+
+This time `http.createServer()` return a object. In the object listen property hold a method. When run listen method than allow us to edit instance http. Which libUV set up the HTTP instance. this time i am able to receive messages.
+
+### Calling method in NodeJs
+
+Node auto-tun the code. When a incoming message is received than call a function and send back relative data.
+
+```js
+function doOnIncoming(incomingData, functionsToSetOutgoingData) {
+	functionsToSetOutgoingData.end('Welcome to Twitter!');
+}
+const server = http.createServer(doOnIncoming);
+server.listen(80);
+```
+
+first declare `doOnIncoming` function, next line `http.createServer(doOnIncoming)` opening the socket, opening the port using the computer tunnel but one more work in this line.
+
+In this line `http.createServer(doOnIncoming)` createServer accept a function argument. this function is auto run than receive incoming messages.
+
+### Calling a Function Under the Hood
+// ..
+
+### Creating a Server Under the Hood
+
+```js
+function doOnIncoming(incomingData, functionsToSetOutgoingData) {
+	functionsToSetOutgoingData.end('Welcome to Twitter!');
+}
+const server = http.createServer(doOnIncoming);
+server.listen(80);
+```
+
+When request a server than the node called the doOnIncoming function automatically and Node inserts 2 arguments automatically. Both arguments will contain an object.
+
+Create a brand new execution context and inside of the local environment persist `incomingData`. this is a object and hold the path of the url, header, body and etc. Second argument is a object `functionsToSetOutgoingData`. this object contains some properties like `end` property persist a function and etc.
+
+When calling `functionsToSetOutgoingData.end('some message')` inside of the execution context then `.end` function intimate connect back to node, the node add the message into HTTP message and then that message is going to be send back to the client.
