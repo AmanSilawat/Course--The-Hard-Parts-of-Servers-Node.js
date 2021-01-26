@@ -88,6 +88,7 @@ first declare `doOnIncoming` function, next line `http.createServer(doOnIncoming
 In this line `http.createServer(doOnIncoming)` createServer accept a function argument. this function is auto run than receive incoming messages.
 
 ### Calling a Function Under the Hood
+
 // ..
 
 ### Creating a Server Under the Hood
@@ -105,3 +106,60 @@ When request a server than the node called the doOnIncoming function automatical
 Create a brand new execution context and inside of the local environment persist `incomingData`. this is a object and hold the path of the url, header, body and etc. Second argument is a object `functionsToSetOutgoingData`. this object contains some properties like `end` property persist a function and etc.
 
 When calling `functionsToSetOutgoingData.end('some message')` inside of the execution context then `.end` function intimate connect back to node, the node add the message into HTTP message and then that message is going to be send back to the client.
+
+### Request & Response with Node
+
+**Request**: When a request is made to the server, the client creates an HTTP message.
+
+#### Examples of Request Message
+
+```
+GET /tweets/s HTTP/1.1
+**Host**: localhost: 8000
+Connection: keep-alive
+Accept-Language: en-us
+User-Agent: Mozilla
+```
+
+#### There are 2 ways for GET METHOD
+
+1. Request line
+    - `GET /tweets/s HTTP/1.1`
+    - Method type gate is inside the HTTP message and the path.
+    - Request method: All methods must be in uppercase. The request will be recognized by the given request-URI
+        - **GET** request do not have a message body.
+        - **POST** request can contain the post data in the body
+2. Request Header : Additional information about the client is given in this field. These fields act as request modifiers. meta data, like
+    - **HOST** is mandatory
+    - **Accept-Language**
+    - **Connection**
+    - **User-Agent**
+
+These messages will be sent to the server.
+
+#### Example
+
+```js
+function doOnIncoming(incomingData, functionsToSetOutgoingData) {
+	functionsToSetOutgoingData.end('Welcome to Twitter!');
+}
+const server = http.createServer(doOnIncoming);
+server.listen(80);
+```
+
+##### Example explanation
+- **`http.createServer`**
+	- setup the node background feature. This function will return an instance object to us containing a method named listen And will contain more properties.
+	- `http` background feature is Network (net) and this feature is setup the socket through the [libUV](https://github.com/libuv/libuv).
+	- `createServer` is a method of `http`. This function will be auto called by node JS and Auto created two argument by node js.
+		- `incomingData`, parameter value type is object. This parameter value is passed by node js and In the request message, the path of the request-line will be saved in the property named URL.
+		- `functionsToSetOutgoingData`, parameter value type is object. This parameter value is passed by node js and end property hold a function. More properties will be available in the object
+			- `functionsToSetOutgoingData.end('Welcome to Twitter!');`, This method is sent back a request to the client.
+	- `doOnIncoming`, This function is automatic called by node js.
+		- when will be called this function?
+			- When a request is made by a client, this function will be auto called by NodeJs.
+
+- **`server.listen(80)`**
+	- setup the computer internal feature and open channel to the internet with port.
+
+	- Set the port `server.listen(80)`. The browser default entering port is 80. Port 80 means request for data.
