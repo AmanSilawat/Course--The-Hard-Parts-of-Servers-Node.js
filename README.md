@@ -148,18 +148,42 @@ server.listen(80);
 ```
 
 ##### Example explanation
-- **`http.createServer`**
-	- setup the node background feature. This function will return an instance object to us containing a method named listen And will contain more properties.
-	- `http` background feature is Network (net) and this feature is setup the socket through the [libUV](https://github.com/libuv/libuv).
-	- `createServer` is a method of `http`. This function will be auto called by node JS and Auto created two argument by node js.
-		- `incomingData`, parameter value type is object. This parameter value is passed by node js and In the request message, the path of the request-line will be saved in the property named URL.
-		- `functionsToSetOutgoingData`, parameter value type is object. This parameter value is passed by node js and end property hold a function. More properties will be available in the object
-			- `functionsToSetOutgoingData.end('Welcome to Twitter!');`, This method is sent back a request to the client.
-	- `doOnIncoming`, This function is automatic called by node js.
-		- when will be called this function?
-			- When a request is made by a client, this function will be auto called by NodeJs.
 
-- **`server.listen(80)`**
-	- setup the computer internal feature and open channel to the internet with port.
+-   **`http.createServer`**
 
-	- Set the port `server.listen(80)`. The browser default entering port is 80. Port 80 means request for data.
+    -   setup the node background feature. This function will return an instance object to us containing a method named listen And will contain more properties.
+    -   `http` background feature is Network (net) and this feature is setup the socket through the [libUV](https://github.com/libuv/libuv).
+    -   `createServer` is a method of `http`. This function will be auto called by node JS and Auto created two argument by node js.
+        -   `incomingData`, parameter value type is object. This parameter value is passed by node js and In the request message, the path of the request-line will be saved in the property named URL.
+        -   `functionsToSetOutgoingData`, parameter value type is object. This parameter value is passed by node js and end property hold a function. More properties will be available in the object
+            -   `functionsToSetOutgoingData.end('Welcome to Twitter!');`, This method is sent back a request to the client.
+    -   `doOnIncoming`, This function is automatic called by node js.
+        -   when will be called this function?
+            -   When a request is made by a client, this function will be auto called by NodeJs.
+
+-   **`server.listen(80)`**
+
+    -   setup the computer internal feature and open channel to the internet with port.
+
+    -   Set the port `server.listen(80)`. The browser default entering port is 80. Port 80 means request for data.
+
+## Node with HTTP
+
+### Preparing for HTTPRequestObject
+
+Messages are sent in HTTP format
+
+HTTP message: Request line (url, method),
+Headers, Body (optional)
+
+```js
+const tweets = ["Hi","😂" , "Hello", "👋" ,"👻"]
+function doOnIncoming(incomingData, functionsToSetOutgoingData){
+ const tweetNeeded = incomingData.url.slice(8)-1
+ functionsToSetOutgoingData.end(tweets[tweetNeeded])
+}
+const server = http.createServer(doOnIncoming)
+server.listen(80)
+```
+
+![Preparing for HTTPRequestObject](./Preparing-for-HTTPRequestObject/Preparing-for-HTTPRequestObject.jpg)
