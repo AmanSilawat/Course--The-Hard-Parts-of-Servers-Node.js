@@ -224,3 +224,21 @@ Return a object
 ```
 
 http is not a part of javascript. This is label for Node C++ feature.
+
+### JavaScript Node Development
+
+1. Write the code (VSCode et al)
+2. Load server file in terminal
+    ```
+    $ node server.js
+    ```
+3. Need to reload our code with Node every time we make a change so nodemon.
+    ```
+    $ nodemon server.js
+    ```
+
+
+### Cloud Node Development
+
+we have somebody else computer be always on or connect through the internet. Some company is provided always on computer. like: [AWS](https://aws.amazon.com/) (Amazon), [Google](https://cloud.google.com/) and [Microsoft](https://azure.microsoft.com/en-gb/).
+
