@@ -196,3 +196,5 @@ HttpRequest Node JS internal features to get a request from libUV after node js 
 ![Preparing for HTTPRequestObject](./node-with-http/Parsing-HTTPRequestObject/Parsing-HTTPRequestObject.jpg)
 
 ### HTTP Response in Node
+
+![HTTP Response in Node](./node-with-http/HTTP-Response-in-Node/HTTP-Response-in-Node.jpg)
