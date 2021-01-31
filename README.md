@@ -186,4 +186,13 @@ const server = http.createServer(doOnIncoming)
 server.listen(80)
 ```
 
-![Preparing for HTTPRequestObject](./Preparing-for-HTTPRequestObject/Preparing-for-HTTPRequestObject.jpg)
+![Preparing for HTTPRequestObject](./node-with-http/Preparing-for-HTTPRequestObject/Preparing-for-HTTPRequestObject.jpg)
+
+
+### Parsing HTTPRequestObject
+
+HttpRequest Node JS internal features to get a request from libUV after node js features get HttpRequestMessage, auto-creates two arguments. which will object the first object which will have "URL" and "method" name property and the second object I will have the property named "end" and both properties contain methods.
+
+![Preparing for HTTPRequestObject](./node-with-http/Parsing-HTTPRequestObject/Parsing-HTTPRequestObject.jpg)
+
+### HTTP Response in Node
