@@ -198,3 +198,29 @@ HttpRequest Node JS internal features to get a request from libUV after node js 
 ### HTTP Response in Node
 
 ![HTTP Response in Node](./node-with-http/HTTP-Response-in-Node/HTTP-Response-in-Node.jpg)
+
+
+### Response Headers
+
+Our return message is also in HTTP format
+
+- We can use the body to send the data and
+headers to send important metadata
+
+- In the headers we can include info on the
+format of the data being sent back - e.g. it’s
+html so to load it as a webpage
+
+### Intro to Require in Node
+
+```js
+const http = require(‘http’);
+```
+Return a object
+```
+{
+    createServer: ->f->
+}
+```
+
+http is not a part of javascript. This is label for Node C++ feature.
