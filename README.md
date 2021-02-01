@@ -242,3 +242,22 @@ http is not a part of javascript. This is label for Node C++ feature.
 
 we have somebody else computer be always on or connect through the internet. Some company is provided always on computer. like: [AWS](https://aws.amazon.com/) (Amazon), [Google](https://cloud.google.com/) and [Microsoft](https://azure.microsoft.com/en-gb/).
 
+Do we need an always-on computer in our
+house to run a server?
+1. Write code on your computer
+2. SSH into someone else’s computer (one of
+AWS’s)
+    - I'm gonna use my terminal to control AWS's. A computer on the internet owned by AWS's and we going to do something called SSH, which is a way of securely patching in interfacing with AWS's computer through SSH.
+
+    - now, turn on node on Amazon's computer And load up my server JS code to run, not on my computer, but on Amazon computer.
+
+
+3. Set up DNS to match domain name to right IP
+
+    - With the help of DNS (Domain Name Server) when search twitter.com. It's a ledger, ledger just means a comparison of two things side by side Of all domain names.
+
+    - **how it handle this situation.**
+        Amazon it's not just one computer, you're dealing with a million possible computers. Specifically how you match up exactly.How it enters a Amazon server, Will stay here but we make all of the configurations, this is what is called DevOps.
+        DevOps is the extremely interesting and challenging situation of ensuring that you've managed to get your code running on Amazon's computer with the node app running and that when "other user" go to twitter.com that Amazon entry point is configured correctly, that Amazon IP address as it's known as. That the URL is matched to is gonna enter at the exact right computer.
+
+![HTTP Response in Node](./node-with-http/Cloud-Node-Development/Cloud-Node-Development.jpg)
