@@ -261,3 +261,9 @@ AWS’s)
         DevOps is the extremely interesting and challenging situation of ensuring that you've managed to get your code running on Amazon's computer with the node app running and that when "other user" go to twitter.com that Amazon entry point is configured correctly, that Amazon IP address as it's known as. That the URL is matched to is gonna enter at the exact right computer.
 
 ![HTTP Response in Node](./node-with-http/Cloud-Node-Development/Cloud-Node-Development.jpg)
+
+### Local Node Development
+
+OS developers included the loopback feature with localhost.
+
+![HTTP Response in Node](./node-with-http/Local-Node-Development/Local-Node-Development.jpg)
