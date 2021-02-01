@@ -282,9 +282,14 @@ http.createServer() : setup a socket
     - The object with the functions available.
     - Which modify Node's behavior.
 
-![Event Handling in Node](./node-with-http/Event-Handling-in-Node/Event-Handling-in-Node.jpg)
+![Event Handling in Node](./Events-and-Error-Handling/Event-Handling-in-Node/Event-Handling-in-Node.jpg)
 
 ### Modifying the Node Server
 
 
-![Modifying the Node Server](./node-with-http/Modifying-the-Node-Server/Modifying-the-Node-Server.jpg)
+![Modifying the Node Server](./Events-and-Error-Handling/Modifying-the-Node-Server/Modifying-the-Node-Server.jpg)
+
+
+### Node Event Handling in Action
+
+![Node Event Handling in Action](./Events-and-Error-Handling/Node-Event-Handling-in-Action/Node-Event-Handling-in-Action.jpg)
