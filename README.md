@@ -260,10 +260,31 @@ AWS’s)
         Amazon it's not just one computer, you're dealing with a million possible computers. Specifically how you match up exactly.How it enters a Amazon server, Will stay here but we make all of the configurations, this is what is called DevOps.
         DevOps is the extremely interesting and challenging situation of ensuring that you've managed to get your code running on Amazon's computer with the node app running and that when "other user" go to twitter.com that Amazon entry point is configured correctly, that Amazon IP address as it's known as. That the URL is matched to is gonna enter at the exact right computer.
 
-![HTTP Response in Node](./node-with-http/Cloud-Node-Development/Cloud-Node-Development.jpg)
+![Cloud-Node-Development](./node-with-http/Cloud-Node-Development/Cloud-Node-Development.jpg)
 
 ### Local Node Development
 
 OS developers included the loopback feature with localhost.
 
-![HTTP Response in Node](./node-with-http/Local-Node-Development/Local-Node-Development.jpg)
+![Local-Node-Development](./node-with-http/Local-Node-Development/Local-Node-Development.jpg)
+
+## Events & Error Handling
+### Event Handling in Node
+
+HTTP instance or feature we've set up. So if I want to set up my port in the background, after I've set up the HTTP feature with createServer.
+
+http.createServer() : setup a socket
+
+- what was Node's output of running createServer, what was the C++ output of running createServer?
+    - Setting up the socket.
+
+- what's JavaScript's output of running createServer?
+    - The object with the functions available.
+    - Which modify Node's behavior.
+
+![Event Handling in Node](./node-with-http/Event-Handling-in-Node/Event-Handling-in-Node.jpg)
+
+### Modifying the Node Server
+
+
+![Modifying the Node Server](./node-with-http/Modifying-the-Node-Server/Modifying-the-Node-Server.jpg)
