@@ -316,11 +316,12 @@ fs.readFile('./tweets.json', useImportedtweets);
 
 ![Call Stack Introduction](./File-System/Call-Stack-Introduction/Call-Stack-Introduction.jpg)
 
-
 #### Error-first callbacks
+
 When Error is appear the first argument value is null otherwise parameter value is switched in this function `useImportedtweets(errorData, data)`. fs.readFile is a asynchronous methods.
 
 [Example](./File-System/error-first-callbacks)
+
 ```js
 const fs = require('fs');
 
@@ -349,8 +350,25 @@ There was an error [Error: ENOENT: no such file or directory, open './does-exist
 ```
 
 ---
+
 ## Streams
+
+```js
+let cleanedTweets = '';
+function cleanTweets(tweetsToClean) {
+	// algorithm to remove bad tweets from `tweetsToClean`
+}
+function doOnNewBatch(data) {
+	cleanedTweets += cleanTweets(data);
+}
+const accessTweetsArchive = fs.createReadStream('./tweetsArchive.json');
+accessTweetsArchive.on('data', doOnNewBatch);
+```
 
 ### Setting Up the Stream
 
 ![Example](./Streams/Setting-Up-the-Stream/Setting-Up-the-Stream.jpg)
+
+### Processing Data in Batches
+
+![Processing Data in Batches](./Streams/Processing-Data-in-Batches/Processing-Data-in-Batches.jpg)
