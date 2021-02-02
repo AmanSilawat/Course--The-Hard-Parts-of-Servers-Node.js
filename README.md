@@ -177,17 +177,16 @@ HTTP message: Request line (url, method),
 Headers, Body (optional)
 
 ```js
-const tweets = ["Hi","😂" , "Hello", "👋" ,"👻"]
-function doOnIncoming(incomingData, functionsToSetOutgoingData){
- const tweetNeeded = incomingData.url.slice(8)-1
- functionsToSetOutgoingData.end(tweets[tweetNeeded])
+const tweets = ['Hi', '😂', 'Hello', '👋', '👻'];
+function doOnIncoming(incomingData, functionsToSetOutgoingData) {
+	const tweetNeeded = incomingData.url.slice(8) - 1;
+	functionsToSetOutgoingData.end(tweets[tweetNeeded]);
 }
-const server = http.createServer(doOnIncoming)
-server.listen(80)
+const server = http.createServer(doOnIncoming);
+server.listen(80);
 ```
 
 ![Preparing for HTTPRequestObject](./node-with-http/Preparing-for-HTTPRequestObject/Preparing-for-HTTPRequestObject.jpg)
-
 
 ### Parsing HTTPRequestObject
 
@@ -199,24 +198,25 @@ HttpRequest Node JS internal features to get a request from libUV after node js 
 
 ![HTTP Response in Node](./node-with-http/HTTP-Response-in-Node/HTTP-Response-in-Node.jpg)
 
-
 ### Response Headers
 
 Our return message is also in HTTP format
 
-- We can use the body to send the data and
-headers to send important metadata
+-   We can use the body to send the data and
+    headers to send important metadata
 
-- In the headers we can include info on the
-format of the data being sent back - e.g. it’s
-html so to load it as a webpage
+-   In the headers we can include info on the
+    format of the data being sent back - e.g. it’s
+    html so to load it as a webpage
 
 ### Intro to Require in Node
 
 ```js
 const http = require(‘http’);
 ```
+
 Return a object
+
 ```
 {
     createServer: ->f->
@@ -237,28 +237,26 @@ http is not a part of javascript. This is label for Node C++ feature.
     $ nodemon server.js
     ```
 
-
 ### Cloud Node Development
 
 we have somebody else computer be always on or connect through the internet. Some company is provided always on computer. like: [AWS](https://aws.amazon.com/) (Amazon), [Google](https://cloud.google.com/) and [Microsoft](https://azure.microsoft.com/en-gb/).
 
 Do we need an always-on computer in our
 house to run a server?
-1. Write code on your computer
-2. SSH into someone else’s computer (one of
-AWS’s)
-    - I'm gonna use my terminal to control AWS's. A computer on the internet owned by AWS's and we going to do something called SSH, which is a way of securely patching in interfacing with AWS's computer through SSH.
 
-    - now, turn on node on Amazon's computer And load up my server JS code to run, not on my computer, but on Amazon computer.
+1.  Write code on your computer
+2.  SSH into someone else’s computer (one of
+    AWS’s) - I'm gonna use my terminal to control AWS's. A computer on the internet owned by AWS's and we going to do something called SSH, which is a way of securely patching in interfacing with AWS's computer through SSH.
 
+        - now, turn on node on Amazon's computer And load up my server JS code to run, not on my computer, but on Amazon computer.
 
-3. Set up DNS to match domain name to right IP
+3.  Set up DNS to match domain name to right IP
 
     - With the help of DNS (Domain Name Server) when search twitter.com. It's a ledger, ledger just means a comparison of two things side by side Of all domain names.
 
     - **how it handle this situation.**
-        Amazon it's not just one computer, you're dealing with a million possible computers. Specifically how you match up exactly.How it enters a Amazon server, Will stay here but we make all of the configurations, this is what is called DevOps.
-        DevOps is the extremely interesting and challenging situation of ensuring that you've managed to get your code running on Amazon's computer with the node app running and that when "other user" go to twitter.com that Amazon entry point is configured correctly, that Amazon IP address as it's known as. That the URL is matched to is gonna enter at the exact right computer.
+      Amazon it's not just one computer, you're dealing with a million possible computers. Specifically how you match up exactly.How it enters a Amazon server, Will stay here but we make all of the configurations, this is what is called DevOps.
+      DevOps is the extremely interesting and challenging situation of ensuring that you've managed to get your code running on Amazon's computer with the node app running and that when "other user" go to twitter.com that Amazon entry point is configured correctly, that Amazon IP address as it's known as. That the URL is matched to is gonna enter at the exact right computer.
 
 ![Cloud-Node-Development](./node-with-http/Cloud-Node-Development/Cloud-Node-Development.jpg)
 
@@ -269,27 +267,46 @@ OS developers included the loopback feature with localhost.
 ![Local-Node-Development](./node-with-http/Local-Node-Development/Local-Node-Development.jpg)
 
 ## Events & Error Handling
+
 ### Event Handling in Node
 
 HTTP instance or feature we've set up. So if I want to set up my port in the background, after I've set up the HTTP feature with createServer.
 
 http.createServer() : setup a socket
 
-- what was Node's output of running createServer, what was the C++ output of running createServer?
-    - Setting up the socket.
+-   what was Node's output of running createServer, what was the C++ output of running createServer?
 
-- what's JavaScript's output of running createServer?
-    - The object with the functions available.
-    - Which modify Node's behavior.
+    -   Setting up the socket.
+
+-   what's JavaScript's output of running createServer?
+    -   The object with the functions available.
+    -   Which modify Node's behavior.
 
 ![Event Handling in Node](./Events-and-Error-Handling/Event-Handling-in-Node/Event-Handling-in-Node.jpg)
 
 ### Modifying the Node Server
 
-
 ![Modifying the Node Server](./Events-and-Error-Handling/Modifying-the-Node-Server/Modifying-the-Node-Server.jpg)
-
 
 ### Node Event Handling in Action
 
 ![Node Event Handling in Action](./Events-and-Error-Handling/Node-Event-Handling-in-Action/Node-Event-Handling-in-Action.jpg)
+
+## File System
+
+### Importing with fs
+
+```js
+function cleanTweets(tweetsToClean) {
+	// code that removes bad tweets
+}
+function useImportedtweets(errorData, data) {
+	const cleanedTweetsJson = cleanTweets(data);
+	const tweetsObj = JSON.parse(cleanedTweetsJson);
+	console.log(tweetsObj.tweet2);
+}
+fs.readFile('./tweets.json', useImportedtweets);
+```
+
+### Reading from the File System with fs
+![Reading from the File System with fs](./File-System/Reading-from-the-File-System-with-fs/Reading-from-the-File-System-with-fs.jpg)
