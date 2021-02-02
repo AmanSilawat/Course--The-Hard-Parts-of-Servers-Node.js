@@ -372,3 +372,8 @@ accessTweetsArchive.on('data', doOnNewBatch);
 ### Processing Data in Batches
 
 ![Processing Data in Batches](./Streams/Processing-Data-in-Batches/Processing-Data-in-Batches.jpg)
+
+
+### Checking the Callback Queue
+![Checking the Callback Queue](./Streams/Checking-the-Callback-Queue/Checking-the-Callback-Queue.jpg)
+
