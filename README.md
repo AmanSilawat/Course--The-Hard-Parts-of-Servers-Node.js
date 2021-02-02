@@ -252,11 +252,11 @@ house to run a server?
 
 3.  Set up DNS to match domain name to right IP
 
-    - With the help of DNS (Domain Name Server) when search twitter.com. It's a ledger, ledger just means a comparison of two things side by side Of all domain names.
+    -   With the help of DNS (Domain Name Server) when search twitter.com. It's a ledger, ledger just means a comparison of two things side by side Of all domain names.
 
-    - **how it handle this situation.**
-      Amazon it's not just one computer, you're dealing with a million possible computers. Specifically how you match up exactly.How it enters a Amazon server, Will stay here but we make all of the configurations, this is what is called DevOps.
-      DevOps is the extremely interesting and challenging situation of ensuring that you've managed to get your code running on Amazon's computer with the node app running and that when "other user" go to twitter.com that Amazon entry point is configured correctly, that Amazon IP address as it's known as. That the URL is matched to is gonna enter at the exact right computer.
+    -   **how it handle this situation.**
+        Amazon it's not just one computer, you're dealing with a million possible computers. Specifically how you match up exactly.How it enters a Amazon server, Will stay here but we make all of the configurations, this is what is called DevOps.
+        DevOps is the extremely interesting and challenging situation of ensuring that you've managed to get your code running on Amazon's computer with the node app running and that when "other user" go to twitter.com that Amazon entry point is configured correctly, that Amazon IP address as it's known as. That the URL is matched to is gonna enter at the exact right computer.
 
 ![Cloud-Node-Development](./node-with-http/Cloud-Node-Development/Cloud-Node-Development.jpg)
 
@@ -309,4 +309,41 @@ fs.readFile('./tweets.json', useImportedtweets);
 ```
 
 ### Reading from the File System with fs
+
 ![Reading from the File System with fs](./File-System/Reading-from-the-File-System-with-fs/Reading-from-the-File-System-with-fs.jpg)
+
+### Call Stack Introduction
+
+![Call Stack Introduction](./File-System/Call-Stack-Introduction/Call-Stack-Introduction.jpg)
+
+
+#### Error-first callbacks
+When Error is appear the first argument value is null otherwise parameter value is switched in this function `useImportedtweets(errorData, data)`. fs.readFile is a asynchronous methods.
+
+[Example]('./File-System/error-first-callbacks')
+```js
+const fs = require('fs');
+
+function errorFirstCallback(err, data) {
+	if (err) {
+		console.error('There was an error', err);
+		return;
+	}
+	console.log(data);
+}
+
+fs.readFile('./my-data.json', errorFirstCallback); // <Buffer 7b 0a 20 20 20 20 22 >
+fs.readFile('./does-exist', errorFirstCallback); // Error
+```
+
+output
+
+```
+There was an error [Error: ENOENT: no such file or directory, open './does-exist'] {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: './does-exist'
+}
+<Buffer 7b 0a 20 20 20 20 22 ... >
+```
