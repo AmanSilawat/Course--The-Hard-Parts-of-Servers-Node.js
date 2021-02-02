@@ -320,7 +320,7 @@ fs.readFile('./tweets.json', useImportedtweets);
 #### Error-first callbacks
 When Error is appear the first argument value is null otherwise parameter value is switched in this function `useImportedtweets(errorData, data)`. fs.readFile is a asynchronous methods.
 
-[Example]('./File-System/error-first-callbacks')
+[Example](./File-System/error-first-callbacks)
 ```js
 const fs = require('fs');
 
@@ -347,3 +347,10 @@ There was an error [Error: ENOENT: no such file or directory, open './does-exist
 }
 <Buffer 7b 0a 20 20 20 20 22 ... >
 ```
+
+---
+## Streams
+
+### Setting Up the Stream
+
+![Example](./Streams/Setting-Up-the-Stream/Setting-Up-the-Stream.jpg)
