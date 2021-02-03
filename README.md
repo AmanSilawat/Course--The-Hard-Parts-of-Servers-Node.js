@@ -384,8 +384,14 @@ All functions that have been set to auto-run by node do not share the same callb
 ## Asynchronicity in Node
 ### Timer Queue
 
-![Timer Queue](./Asynchronicity-in-Node/Timer-Queue/Timer-Queue.jpg);
+![Timer Queue](./Asynchronicity-in-Node/Timer-Queue/Timer-Queue.jpg)
 
 ### IO Queue
 
-![IO Queue](./Asynchronicity-in-Node/IO-Queue/IO-Queue.jpg);
+![IO Queue](./Asynchronicity-in-Node/IO-Queue/IO-Queue.jpg)
+
+### Check Queue
+
+In **Check Queue**: which is where 95% of our delayed functions to be auto-run will be in Check Queue.
+
+![Check Queue](./Asynchronicity-in-Node/Check-Queue/Check-Queue.jpg)
