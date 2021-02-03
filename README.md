@@ -395,3 +395,7 @@ All functions that have been set to auto-run by node do not share the same callb
 In **Check Queue**: which is where 95% of our delayed functions to be auto-run will be in Check Queue.
 
 ![Check Queue](./Asynchronicity-in-Node/Check-Queue/Check-Queue.jpg)
+
+### Event Loop Completion
+
+![Event-Loop-Completion](./Asynchronicity-in-Node/Event-Loop-Completion/Event-Loop-Completion.jpg)
