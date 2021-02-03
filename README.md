@@ -379,3 +379,9 @@ Node.js is a single threaded language which in background uses multiple threads 
 
 All functions that have been set to auto-run by node do not share the same callback queue.
 ![Checking the Callback Queue](./Streams/Checking-the-Callback-Queue/Checking-the-Callback-Queue.jpg)
+
+
+## Asynchronicity in Node
+### Timer Queue
+
+![Timer Queue](./Asynchronicity-in-Node/Timer-Queue/Timer-Queue.jpg);
