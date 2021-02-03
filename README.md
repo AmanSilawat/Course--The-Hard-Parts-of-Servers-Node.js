@@ -373,15 +373,35 @@ accessTweetsArchive.on('data', doOnNewBatch);
 
 ![Processing Data in Batches](./Streams/Processing-Data-in-Batches/Processing-Data-in-Batches.jpg)
 
-
 ### Checking the Callback Queue
+
 Node.js is a single threaded language which in background uses multiple threads to execute asynchronous code.
 
 All functions that have been set to auto-run by node do not share the same callback queue.
 ![Checking the Callback Queue](./Streams/Checking-the-Callback-Queue/Checking-the-Callback-Queue.jpg)
 
-
 ## Asynchronicity in Node
+
+```js
+function useImportedtweets(errorData, data){
+    const tweets = JSON.parse(data)
+    console.log(tweets.tweet1)
+}
+function immediately(){console.log("Run me last
+!
+")}
+function printHello(){console.log("Hello")}
+function blockFor500ms(){
+    // Block JS thread DIRECTLY for 500 ms
+    // With e.g. a for loop with 5m elements
+}
+setTimeout(printHello,0)
+fs.readFile('./tweets.json', useImportedtweets)
+blockFor500ms()
+console.log("Me first")
+setImmediate(immediately)
+```
+
 ### Timer Queue
 
 ![Timer Queue](./Asynchronicity-in-Node/Timer-Queue/Timer-Queue.jpg)
@@ -394,7 +414,7 @@ All functions that have been set to auto-run by node do not share the same callb
 
 In **Check Queue**: which is where 95% of our delayed functions to be auto-run will be in Check Queue.
 
-![Check Queue](./Asynchronicity-in-Node/Check-Queue/Check-Queue.jpg)
+![Check Queue](./Asynchronicity-in-Node/Check-Queue/Check-Queue.png)
 
 ### Event Loop Completion
 
@@ -403,3 +423,11 @@ In **Check Queue**: which is where 95% of our delayed functions to be auto-run w
 ### Microtask & Close Queues
 
 ![Microtask & Close Queues](./Asynchronicity-in-Node/Microtask-and-Close-Queues/Microtask-and-Close-Queues.jpg)
+
+### Priority of Queue Execution
+
+Rules for the automatic execution of the JS code by Node
+
+1. Hold each deferred function in one of the task queues when the Node background API ‘completes’.
+2. Add the function to the Call stack (i.e. execute the function) ONLY when the call. stack is totally empty (Have the Event Loop check this condition)
+3. Prioritize functions in "Timer queue" over "I/O queue", over "setImmediate" (‘check’) queue, over the "Close Queue"
