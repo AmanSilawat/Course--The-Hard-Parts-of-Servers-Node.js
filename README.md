@@ -399,3 +399,7 @@ In **Check Queue**: which is where 95% of our delayed functions to be auto-run w
 ### Event Loop Completion
 
 ![Event-Loop-Completion](./Asynchronicity-in-Node/Event-Loop-Completion/Event-Loop-Completion.jpg)
+
+### Microtask & Close Queues
+
+![Microtask & Close Queues](./Asynchronicity-in-Node/Microtask-and-Close-Queues/Microtask-and-Close-Queues.jpg)
