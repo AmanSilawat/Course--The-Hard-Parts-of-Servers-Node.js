@@ -385,3 +385,7 @@ All functions that have been set to auto-run by node do not share the same callb
 ### Timer Queue
 
 ![Timer Queue](./Asynchronicity-in-Node/Timer-Queue/Timer-Queue.jpg);
+
+### IO Queue
+
+![IO Queue](./Asynchronicity-in-Node/IO-Queue/IO-Queue.jpg);
